@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:mineable/katar",
+    "#minecraft:mineable/axe",
+    "#minecraft:mineable/hoe",
+    "#projecte:mineable/shears",
+    "#projecte:mineable/sword",
+    "minecraft:cobweb"
+  ]
+}

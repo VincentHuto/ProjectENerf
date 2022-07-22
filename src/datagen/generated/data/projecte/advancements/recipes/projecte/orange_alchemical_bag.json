@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "projecte:orange_alchemical_bag"
+    ]
+  },
+  "criteria": {
+    "has_alchemical_chest": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "projecte:alchemical_chest"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "projecte:orange_alchemical_bag"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_alchemical_chest",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "projecte:conversions/charcoal_to_coal"
+    ]
+  },
+  "criteria": {
+    "has_charcoal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "projecte:philosophers_stone"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:charcoal"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "projecte:conversions/charcoal_to_coal"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_charcoal",
+      "has_the_recipe"
+    ]
+  ]
+}

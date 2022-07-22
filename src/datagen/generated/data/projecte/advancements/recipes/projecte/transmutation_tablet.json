@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "projecte:transmutation_tablet"
+    ]
+  },
+  "criteria": {
+    "has_table": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "projecte:transmutation_table"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "projecte:transmutation_tablet"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_table",
+      "has_the_recipe"
+    ]
+  ]
+}
