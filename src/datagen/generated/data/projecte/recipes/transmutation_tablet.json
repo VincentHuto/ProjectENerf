@@ -10,10 +10,10 @@
       "tag": "forge:stone"
     },
     "D": {
-      "item": "projecte:dark_matter_block"
+      "item": "minecraft:obsidian"
     },
     "T": {
-      "item": "projecte:transmutation_table"
+      "item": "projecte:philosophers_stone"
     }
   },
   "result": {

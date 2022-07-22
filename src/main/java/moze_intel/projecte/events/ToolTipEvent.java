@@ -33,17 +33,6 @@ public class ToolTipEvent {
 			return;
 		}
 		Player clientPlayer = Minecraft.getInstance().player;
-		if (ProjectEConfig.client.pedestalToolTips.get()) {
-			current.getCapability(PECapabilities.PEDESTAL_ITEM_CAPABILITY).ifPresent(pedestalItem -> {
-				event.getToolTip().add(PELang.PEDESTAL_ON.translateColored(ChatFormatting.DARK_PURPLE));
-				List<Component> description = pedestalItem.getPedestalDescription();
-				if (description.isEmpty()) {
-					event.getToolTip().add(PELang.PEDESTAL_DISABLED.translateColored(ChatFormatting.RED));
-				} else {
-					event.getToolTip().addAll(description);
-				}
-			});
-		}
 
 		if (ProjectEConfig.client.tagToolTips.get()) {
 			current.getTags().forEach(tag -> event.getToolTip().add(new TextComponent("#" + tag.location())));

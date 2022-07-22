@@ -35,11 +35,8 @@ public class ClientKeyHelper {
 
 	public static void registerKeyBindings() {
 		ImmutableBiMap.Builder<KeyMapping, PEKeybind> builder = ImmutableBiMap.builder();
-		addKeyBinding(builder, PEKeybind.HELMET_TOGGLE, KeyModifier.SHIFT, GLFW.GLFW_KEY_X);
-		addKeyBinding(builder, PEKeybind.BOOTS_TOGGLE, KeyModifier.NONE, GLFW.GLFW_KEY_X);
 		addKeyBinding(builder, PEKeybind.CHARGE, KeyModifier.NONE, GLFW.GLFW_KEY_V);
 		addKeyBinding(builder, PEKeybind.EXTRA_FUNCTION, KeyModifier.NONE, GLFW.GLFW_KEY_C);
-		addKeyBinding(builder, PEKeybind.FIRE_PROJECTILE, KeyModifier.NONE, GLFW.GLFW_KEY_R);
 		addKeyBinding(builder, PEKeybind.MODE, KeyModifier.NONE, GLFW.GLFW_KEY_G);
 		mcToPe = builder.build();
 		peToMc = mcToPe.inverse();
@@ -48,16 +45,17 @@ public class ClientKeyHelper {
 		}
 	}
 
-	private static void addKeyBinding(ImmutableBiMap.Builder<KeyMapping, PEKeybind> builder, PEKeybind keyBind, KeyModifier modifier, int keyCode) {
-		builder.put(new KeyMapping(keyBind.getTranslationKey(), KeyConflictContext.IN_GAME, modifier, InputConstants.Type.KEYSYM, keyCode,
-						PELang.PROJECTE.getTranslationKey()), keyBind);
+	private static void addKeyBinding(ImmutableBiMap.Builder<KeyMapping, PEKeybind> builder, PEKeybind keyBind,
+			KeyModifier modifier, int keyCode) {
+		builder.put(new KeyMapping(keyBind.getTranslationKey(), KeyConflictContext.IN_GAME, modifier,
+				InputConstants.Type.KEYSYM, keyCode, PELang.PROJECTE.getTranslationKey()), keyBind);
 	}
 
 	public static Component getKeyName(PEKeybind k) {
 		if (peToMc.containsKey(k)) {
 			return peToMc.get(k).getTranslatedKeyMessage();
 		}
-		//Fallback to the translation key of the key's function
+		// Fallback to the translation key of the key's function
 		return TextComponentUtil.build(k);
 	}
 }

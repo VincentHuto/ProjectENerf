@@ -12,7 +12,7 @@ license="MIT"
   logoFile="logo.png"
   authors="SinKillerJ, MaPePeR, williewillus, Lilylicious, pupnewfster"
   credits="EE2 creator - x3n0ph0b3, EE2 GUI Textures - MidnightLightning, Former Texture Artist - Magic Banana"
-  description='''A complete rewrite of EE2 for modern Minecraft versions.'''
+  description='''A NERFED complete rewrite of EE2 for modern Minecraft versions.'''
 
 [[dependencies.projecte]]
   modId="minecraft"

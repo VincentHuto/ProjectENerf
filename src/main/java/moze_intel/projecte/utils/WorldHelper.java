@@ -5,6 +5,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 import java.util.function.Predicate;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 import moze_intel.projecte.PECore;
 import moze_intel.projecte.config.ProjectEConfig;
 import moze_intel.projecte.gameObjs.PETags;
@@ -33,7 +37,6 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.biome.Biome;
@@ -70,8 +73,6 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.IForgeShearable;
 import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.world.ExplosionEvent;
 import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fluids.capability.IFluidHandler.FluidAction;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -79,8 +80,6 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
 import net.minecraftforge.items.wrapper.SidedInvWrapper;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * Helper class for anything that touches a World. Notice: Please try to keep methods tidy and alphabetically ordered. Thanks!
@@ -105,18 +104,7 @@ public final class WorldHelper {
 			}
 		}
 	}
-
-	/**
-	 * Equivalent of World.newExplosion
-	 */
-	public static void createNovaExplosion(Level level, Entity exploder, double x, double y, double z, float power) {
-		NovaExplosion explosion = new NovaExplosion(level, exploder, x, y, z, power, true, Explosion.BlockInteraction.BREAK);
-		if (!MinecraftForge.EVENT_BUS.post(new ExplosionEvent.Start(level, explosion))) {
-			explosion.explode();
-			explosion.finalizeExplosion(true);
-		}
-	}
-
+	
 	public static void drainFluid(Level level, BlockPos pos, BlockState state, Fluid toMatch) {
 		Block block = state.getBlock();
 		if (block instanceof IFluidBlock fluidBlock && fluidBlock.getFluid().isSame(toMatch)) {

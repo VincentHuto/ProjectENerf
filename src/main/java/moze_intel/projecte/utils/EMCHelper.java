@@ -4,6 +4,10 @@ import java.math.BigInteger;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Range;
+
 import moze_intel.projecte.api.ItemInfo;
 import moze_intel.projecte.api.capabilities.PECapabilities;
 import moze_intel.projecte.api.capabilities.block_entity.IEmcStorage.EmcAction;
@@ -11,7 +15,6 @@ import moze_intel.projecte.api.capabilities.item.IItemEmcHolder;
 import moze_intel.projecte.config.ProjectEConfig;
 import moze_intel.projecte.emc.FuelMapper;
 import moze_intel.projecte.emc.nbt.NBTManager;
-import moze_intel.projecte.gameObjs.items.KleinStar;
 import moze_intel.projecte.utils.text.ILangEntry;
 import moze_intel.projecte.utils.text.PELang;
 import net.minecraft.ChatFormatting;
@@ -22,32 +25,22 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Range;
 
 /**
- * Helper class for EMC. Notice: Please try to keep methods tidy and alphabetically ordered. Thanks!
+ * Helper class for EMC. Notice: Please try to keep methods tidy and
+ * alphabetically ordered. Thanks!
  */
 public final class EMCHelper {
 
 	/**
-	 * Consumes EMC from fuel items or Klein Stars Any extra EMC is discarded !!! To retain remainder EMC use ItemPE.consumeFuel()
+	 * Consumes EMC from fuel items or Klein Stars Any extra EMC is discarded !!! To
+	 * retain remainder EMC use ItemPE.consumeFuel()
 	 *
 	 * @implNote Order it tries to extract from is, Curios, Offhand, main inventory
 	 */
 	public static long consumePlayerFuel(Player player, @Range(from = 0, to = Long.MAX_VALUE) long minFuel) {
 		if (player.isCreative() || minFuel == 0) {
 			return minFuel;
-		}
-		IItemHandler curios = PlayerHelper.getCurios(player);
-		if (curios != null) {
-			for (int i = 0; i < curios.getSlots(); i++) {
-				long actualExtracted = tryExtract(curios.getStackInSlot(i), minFuel);
-				if (actualExtracted > 0) {
-					player.containerMenu.broadcastChanges();
-					return actualExtracted;
-				}
-			}
 		}
 
 		ItemStack offhand = player.getOffhandItem();
@@ -60,9 +53,11 @@ public final class EMCHelper {
 			}
 		}
 
-		Optional<IItemHandler> itemHandlerCap = player.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).resolve();
+		Optional<IItemHandler> itemHandlerCap = player.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
+				.resolve();
 		if (itemHandlerCap.isPresent()) {
-			//Ensure that we have an item handler capability, because if for example the player is dead we will not
+			// Ensure that we have an item handler capability, because if for example the
+			// player is dead we will not
 			IItemHandler inv = itemHandlerCap.get();
 			Map<Integer, Integer> map = new LinkedHashMap<>();
 			boolean metRequirement = false;
@@ -110,7 +105,8 @@ public final class EMCHelper {
 		if (stack.isEmpty()) {
 			return 0;
 		}
-		Optional<IItemEmcHolder> holderCapability = stack.getCapability(PECapabilities.EMC_HOLDER_ITEM_CAPABILITY).resolve();
+		Optional<IItemEmcHolder> holderCapability = stack.getCapability(PECapabilities.EMC_HOLDER_ITEM_CAPABILITY)
+				.resolve();
 		if (holderCapability.isPresent()) {
 			IItemEmcHolder emcHolder = holderCapability.get();
 			long simulatedExtraction = emcHolder.extractEmc(stack, minFuel, EmcAction.SIMULATE);
@@ -190,7 +186,7 @@ public final class EMCHelper {
 			}
 			return prefix.translateColored(ChatFormatting.YELLOW, ChatFormatting.WHITE, value);
 		}
-		//Sell enabled
+		// Sell enabled
 		long emcSellValue = getEmcSellValue(emc);
 		ILangEntry prefix;
 		String value;
@@ -208,14 +204,6 @@ public final class EMCHelper {
 		return prefix.translateColored(ChatFormatting.YELLOW, ChatFormatting.WHITE, value, ChatFormatting.BLUE, sell);
 	}
 
-	@Range(from = 1, to = Long.MAX_VALUE)
-	public static long getKleinStarMaxEmc(ItemStack stack) {
-		if (stack.getItem() instanceof KleinStar star) {
-			return Constants.MAX_KLEIN_EMC[star.tier.ordinal()];
-		}
-		return Constants.MAX_KLEIN_EMC[0];
-	}
-
 	@Range(from = 0, to = Long.MAX_VALUE)
 	public static long getEMCPerDurability(ItemStack stack) {
 		if (stack.isEmpty()) {
@@ -230,13 +218,16 @@ public final class EMCHelper {
 	}
 
 	/**
-	 * Adds the given amount to the amount of unprocessed EMC the stack has. The amount returned should be used for figuring out how much EMC actually gets removed. While
-	 * the remaining fractional EMC will be stored in UnprocessedEMC.
+	 * Adds the given amount to the amount of unprocessed EMC the stack has. The
+	 * amount returned should be used for figuring out how much EMC actually gets
+	 * removed. While the remaining fractional EMC will be stored in UnprocessedEMC.
 	 *
 	 * @param stack  The stack to set the UnprocessedEMC tag to.
-	 * @param amount The partial amount of EMC to add with the current UnprocessedEMC
+	 * @param amount The partial amount of EMC to add with the current
+	 *               UnprocessedEMC
 	 *
-	 * @return The amount of non fractional EMC no longer being stored in UnprocessedEMC.
+	 * @return The amount of non fractional EMC no longer being stored in
+	 *         UnprocessedEMC.
 	 */
 	public static long removeFractionalEMC(ItemStack stack, double amount) {
 		CompoundTag nbt = stack.getOrCreateTag();

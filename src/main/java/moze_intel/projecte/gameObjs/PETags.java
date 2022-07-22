@@ -40,34 +40,32 @@ public class PETags {
 
 		public static final TagKey<Item> ALCHEMICAL_BAGS = tag("alchemical_bags");
 		/**
-		 * Items in this tag will be used for the various collector fuel upgrade recipes.
+		 * Items in this tag will be used for the various collector fuel upgrade
+		 * recipes.
 		 */
 		public static final TagKey<Item> COLLECTOR_FUEL = tag("collector_fuel");
-		public static final LazyTagLookup<Item> COLLECTOR_FUEL_LOOKUP = LazyTagLookup.create(ForgeRegistries.ITEMS, COLLECTOR_FUEL);
+		public static final LazyTagLookup<Item> COLLECTOR_FUEL_LOOKUP = LazyTagLookup.create(ForgeRegistries.ITEMS,
+				COLLECTOR_FUEL);
 		/**
-		 * Items in this tag can have their NBT tags duped by condensers and transmutation tables
+		 * Items in this tag can have their NBT tags duped by condensers and
+		 * transmutation tables
 		 */
 		public static final TagKey<Item> NBT_WHITELIST = tag("nbt_whitelist");
 		/**
-		 * Items in this tag can contribute and are "valid dusts" for the covalence repair recipe
+		 * Items in this tag can contribute and are "valid dusts" for the covalence
+		 * repair recipe
 		 */
 		public static final TagKey<Item> COVALENCE_DUST = tag("covalence_dust");
-		//Curios tags
-		public static final TagKey<Item> CURIOS_BELT = curiosTag("belt");
-		public static final TagKey<Item> CURIOS_KLEIN_STAR = curiosTag("klein_star");
-		public static final TagKey<Item> CURIOS_NECKLACE = curiosTag("necklace");
-		public static final TagKey<Item> CURIOS_RING = curiosTag("ring");
 
-		public static final LazyTagLookup<Item> ORES_LOOKUP = LazyTagLookup.create(ForgeRegistries.ITEMS, Tags.Items.ORES);
-		public static final LazyTagLookup<Item> RAW_ORES_LOOKUP = LazyTagLookup.create(ForgeRegistries.ITEMS, Tags.Items.RAW_MATERIALS);
+		public static final LazyTagLookup<Item> ORES_LOOKUP = LazyTagLookup.create(ForgeRegistries.ITEMS,
+				Tags.Items.ORES);
+		public static final LazyTagLookup<Item> RAW_ORES_LOOKUP = LazyTagLookup.create(ForgeRegistries.ITEMS,
+				Tags.Items.RAW_MATERIALS);
 
 		private static TagKey<Item> tag(String name) {
 			return ItemTags.create(PECore.rl(name));
 		}
 
-		private static TagKey<Item> curiosTag(String name) {
-			return ItemTags.create(new ResourceLocation(IntegrationHelper.CURIO_MODID, name));
-		}
 	}
 
 	public static class Blocks {
@@ -79,11 +77,13 @@ public class PETags {
 		}
 
 		/**
-		 * Blocks added here (that are IGrowable) will not be broken by the harvest goddess band when unable to continue growing.
+		 * Blocks added here (that are IGrowable) will not be broken by the harvest
+		 * goddess band when unable to continue growing.
 		 */
 		public static final TagKey<Block> BLACKLIST_HARVEST = tag("blacklist/harvest");
 		/**
-		 * Blocks added will not receive extra random ticks from the Watch of Flowing Time
+		 * Blocks added will not receive extra random ticks from the Watch of Flowing
+		 * Time
 		 */
 		public static final TagKey<Block> BLACKLIST_TIME_WATCH = tag("blacklist/time_watch");
 
@@ -99,7 +99,6 @@ public class PETags {
 		public static final TagKey<Block> MINEABLE_WITH_HAMMER = forgeTag("mineable/hammer");
 		public static final TagKey<Block> MINEABLE_WITH_KATAR = forgeTag("mineable/katar");
 		public static final TagKey<Block> MINEABLE_WITH_MORNING_STAR = forgeTag("mineable/morning_star");
-
 
 		private static TagKey<Block> tag(String name) {
 			return BlockTags.create(PECore.rl(name));
@@ -119,7 +118,8 @@ public class PETags {
 		}
 
 		/**
-		 * Entity types added here will not be repelled by the Swiftwolf Rending Gale's repel effect.
+		 * Entity types added here will not be repelled by the Swiftwolf Rending Gale's
+		 * repel effect.
 		 */
 		public static final TagKey<EntityType<?>> BLACKLIST_SWRG = tag("blacklist/swrg");
 		/**
@@ -127,11 +127,13 @@ public class PETags {
 		 */
 		public static final TagKey<EntityType<?>> BLACKLIST_INTERDICTION = tag("blacklist/interdiction");
 		/**
-		 * Philosopher stone's (peaceful) entity randomizer list (Only supports Mob Entities)
+		 * Philosopher stone's (peaceful) entity randomizer list (Only supports Mob
+		 * Entities)
 		 */
 		public static final TagKey<EntityType<?>> RANDOMIZER_PEACEFUL = tag("randomizer/peaceful");
 		/**
-		 * Philosopher stone's (hostile) entity randomizer list (Only supports Mob Entities)
+		 * Philosopher stone's (hostile) entity randomizer list (Only supports Mob
+		 * Entities)
 		 */
 		public static final TagKey<EntityType<?>> RANDOMIZER_HOSTILE = tag("randomizer/hostile");
 
@@ -149,10 +151,12 @@ public class PETags {
 		}
 
 		/**
-		 * Block Entity Types added will not receive extra ticks from the Watch of Flowing Time
+		 * Block Entity Types added will not receive extra ticks from the Watch of
+		 * Flowing Time
 		 */
 		public static final TagKey<BlockEntityType<?>> BLACKLIST_TIME_WATCH = tag("blacklist/time_watch");
-		public static final LazyTagLookup<BlockEntityType<?>> BLACKLIST_TIME_WATCH_LOOKUP = LazyTagLookup.create(ForgeRegistries.BLOCK_ENTITIES, BLACKLIST_TIME_WATCH);
+		public static final LazyTagLookup<BlockEntityType<?>> BLACKLIST_TIME_WATCH_LOOKUP = LazyTagLookup
+				.create(ForgeRegistries.BLOCK_ENTITIES, BLACKLIST_TIME_WATCH);
 
 		private static TagKey<BlockEntityType<?>> tag(String name) {
 			return TagKey.create(Registry.BLOCK_ENTITY_TYPE_REGISTRY, PECore.rl(name));

@@ -6,13 +6,13 @@
     ]
   },
   "criteria": {
-    "has_table": {
+    "has_philo_stone": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "projecte:transmutation_table"
+              "projecte:philosophers_stone"
             ]
           }
         ]
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "has_table",
+      "has_philo_stone",
       "has_the_recipe"
     ]
   ]

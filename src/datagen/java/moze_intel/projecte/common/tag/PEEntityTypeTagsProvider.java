@@ -1,14 +1,13 @@
 package moze_intel.projecte.common.tag;
 
+import org.jetbrains.annotations.Nullable;
+
 import moze_intel.projecte.PECore;
 import moze_intel.projecte.gameObjs.PETags;
-import moze_intel.projecte.gameObjs.registries.PEEntityTypes;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
-import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import org.jetbrains.annotations.Nullable;
 
 public class PEEntityTypeTagsProvider extends EntityTypeTagsProvider {
 
@@ -89,13 +88,6 @@ public class PEEntityTypeTagsProvider extends EntityTypeTagsProvider {
 		tag(PETags.Entities.BLACKLIST_SWRG);
 		tag(PETags.Entities.BLACKLIST_INTERDICTION);
 		//Vanilla tags
-		tag(EntityTypeTags.ARROWS).add(PEEntityTypes.HOMING_ARROW.get());
-		tag(EntityTypeTags.IMPACT_PROJECTILES).add(
-				PEEntityTypes.FIRE_PROJECTILE.get(),
-				PEEntityTypes.LAVA_PROJECTILE.get(),
-				PEEntityTypes.LENS_PROJECTILE.get(),
-				PEEntityTypes.SWRG_PROJECTILE.get(),
-				PEEntityTypes.WATER_PROJECTILE.get()
-		);
+		
 	}
 }

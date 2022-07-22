@@ -1,8 +1,6 @@
 package moze_intel.projecte.client.lang;
 
 import moze_intel.projecte.PECore;
-import moze_intel.projecte.gameObjs.registries.PEBlocks;
-import moze_intel.projecte.gameObjs.registries.PEEntityTypes;
 import moze_intel.projecte.gameObjs.registries.PEItems;
 import moze_intel.projecte.gameObjs.registries.PESoundEvents;
 import moze_intel.projecte.utils.PEKeybind;
@@ -22,14 +20,13 @@ public class PELangProvider extends BaseLanguageProvider {
 		addBlocks();
 		addCommands();
 		addEMC();
-		addEntityTypes();
 		addItems();
 		addModes();
 		addPedestalTooltips();
 		addSubtitles();
 		addTooltips();
 		addTransmutation();
-		//Misc stuff
+		// Misc stuff
 		add(PELang.PROJECTE, "ProjectE");
 		add(PELang.SECONDS, "%s seconds");
 		add(PELang.EVERY_TICK, "%s seconds (every tick)");
@@ -39,7 +36,7 @@ public class PELangProvider extends BaseLanguageProvider {
 		add(PELang.BLACKLIST, "Blacklist");
 		add(PELang.WHITELIST, "Whitelist");
 		add(PELang.DENSITY_MODE_TARGET, "Set target to: %s");
-		//Divining Rod
+		// Divining Rod
 		add(PELang.DIVINING_AVG_EMC, "Average EMC for %s blocks: %s");
 		add(PELang.DIVINING_MAX_EMC, "Max EMC: %s");
 		add(PELang.DIVINING_SECOND_MAX, "Second Max EMC: %s");
@@ -47,20 +44,17 @@ public class PELangProvider extends BaseLanguageProvider {
 		add(PELang.DIVINING_RANGE_3, "3x3x3");
 		add(PELang.DIVINING_RANGE_16, "16x3x3");
 		add(PELang.DIVINING_RANGE_64, "64x3x3");
-		//Keybinds
-		add(PEKeybind.HELMET_TOGGLE, "Helmet Effects");
-		add(PEKeybind.BOOTS_TOGGLE, "Boots Effects");
+		// Keybinds
 		add(PEKeybind.CHARGE, "Charge");
 		add(PEKeybind.EXTRA_FUNCTION, "Extra Function");
-		add(PEKeybind.FIRE_PROJECTILE, "Fire Projectile");
 		add(PEKeybind.MODE, "Change Mode");
-		//JEI
+		// JEI
 		add(PELang.JEI_COLLECTOR, "Collector Fuel Upgrades");
 		add(PELang.WORLD_TRANSMUTE, "World Transmutation");
 		add(PELang.WORLD_TRANSMUTE_DESCRIPTION, "Click in world, shift click for second output");
-		//Curios
+		// Curios
 		add(PELang.CURIOS_KLEIN_STAR, "Klein Star");
-		//Gem Armor
+		// Gem Armor
 		add(PELang.GEM_ENABLED, "ENABLED");
 		add(PELang.GEM_DISABLED, "DISABLED");
 		add(PELang.GEM_ACTIVATE, "Activated Gem Armor Offensive Abilities");
@@ -73,14 +67,14 @@ public class PELangProvider extends BaseLanguageProvider {
 		add(PELang.GEM_LORE_CHEST, "Infernal Armor");
 		add(PELang.GEM_LORE_LEGS, "Gravity Greaves");
 		add(PELang.GEM_LORE_FEET, "Hurricane Boots");
-		//Watch of Flowing Time
+		// Watch of Flowing Time
 		add(PELang.TIME_WATCH_DISABLED, "Item disabled by server admin");
 		add(PELang.TIME_WATCH_MODE, "Time control mode: %s");
 		add(PELang.TIME_WATCH_MODE_SWITCH, "Time control mode set to: %s");
 		add(PELang.TIME_WATCH_OFF, "Off");
 		add(PELang.TIME_WATCH_FAST_FORWARD, "Fast-Forward");
 		add(PELang.TIME_WATCH_REWIND, "Rewind");
-		//GUI
+		// GUI
 		add(PELang.GUI_DARK_MATTER_FURNACE, "DM Furnace");
 		add(PELang.GUI_RED_MATTER_FURNACE, "RM Furnace");
 		add(PELang.GUI_RELAY_MK1, "Relay MKI");
@@ -115,7 +109,8 @@ public class PELangProvider extends BaseLanguageProvider {
 		add(PELang.ADVANCEMENTS_RED_MATTER_BLOCK, "Red and shiny!");
 		add(PELang.ADVANCEMENTS_RED_MATTER_BLOCK_DESCRIPTION, "Now you're getting somewhere!");
 		add(PELang.ADVANCEMENTS_DARK_MATTER_FURNACE, "Hot matter!");
-		add(PELang.ADVANCEMENTS_DARK_MATTER_FURNACE_DESCRIPTION, "A furnace is even better when made from dark matter.");
+		add(PELang.ADVANCEMENTS_DARK_MATTER_FURNACE_DESCRIPTION,
+				"A furnace is even better when made from dark matter.");
 		add(PELang.ADVANCEMENTS_RED_MATTER_FURNACE, "Even hotter matter!");
 		add(PELang.ADVANCEMENTS_RED_MATTER_FURNACE_DESCRIPTION, "Wow, that thing is fast.");
 		add(PELang.ADVANCEMENTS_DARK_MATTER_PICKAXE, "Using Matter on Matter");
@@ -129,27 +124,6 @@ public class PELangProvider extends BaseLanguageProvider {
 	}
 
 	private void addBlocks() {
-		add(PEBlocks.ALCHEMICAL_CHEST, "Alchemical Chest");
-		add(PEBlocks.INTERDICTION_TORCH, "Interdiction Torch");
-		add(PEBlocks.TRANSMUTATION_TABLE, "Transmutation Table");
-		add(PEBlocks.CONDENSER, "Energy Condenser");
-		add(PEBlocks.CONDENSER_MK2, "Energy Condenser MK2");
-		add(PEBlocks.DARK_MATTER_FURNACE, "Dark Matter Furnace");
-		add(PEBlocks.RED_MATTER_FURNACE, "Red Matter Furnace");
-		add(PEBlocks.DARK_MATTER, "Dark Matter Block");
-		add(PEBlocks.RED_MATTER, "Red Matter Block");
-		add(PEBlocks.COLLECTOR, "Energy Collector MK1");
-		add(PEBlocks.COLLECTOR_MK2, "Energy Collector MK2");
-		add(PEBlocks.COLLECTOR_MK3, "Energy Collector MK3");
-		add(PEBlocks.RELAY, "Anti-Matter Relay MK1");
-		add(PEBlocks.RELAY_MK2, "Anti-Matter Relay MK2");
-		add(PEBlocks.RELAY_MK3, "Anti-Matter Relay MK3");
-		add(PEBlocks.NOVA_CATALYST, "Nova Catalyst");
-		add(PEBlocks.NOVA_CATACLYSM, "Nova Cataclysm");
-		add(PEBlocks.ALCHEMICAL_COAL, "Alchemical Coal Block");
-		add(PEBlocks.MOBIUS_FUEL, "Mobius Fuel Block");
-		add(PEBlocks.AETERNALIS_FUEL, "Aeternalis Fuel Block");
-		add(PEBlocks.DARK_MATTER_PEDESTAL, "Dark Matter Pedestal");
 	}
 
 	private void addCommands() {
@@ -181,7 +155,8 @@ public class PELangProvider extends BaseLanguageProvider {
 		add(PELang.EMC_TOOLTIP_WITH_SELL, "EMC: %s (%s)");
 		add(PELang.EMC_STACK_TOOLTIP_WITH_SELL, "Stack EMC: %s (%s)");
 		add(PELang.EMC_TOO_MUCH, "WAY TOO MUCH");
-		//Postfix names for large EMC values. Names gotten from: https://en.wikipedia.org/wiki/Names_of_large_numbers
+		// Postfix names for large EMC values. Names gotten from:
+		// https://en.wikipedia.org/wiki/Names_of_large_numbers
 		addPostfix(0, "Trillion");
 		addPostfix(1, "Quadrillion");
 		addPostfix(2, "Quintillion");
@@ -206,103 +181,8 @@ public class PELangProvider extends BaseLanguageProvider {
 		add(Util.makeDescriptionId("emc", PECore.rl("postfix." + index)), "%s " + postfix);
 	}
 
-	private void addEntityTypes() {
-		add(PEEntityTypes.FIRE_PROJECTILE, "Fireball");
-		add(PEEntityTypes.HOMING_ARROW, "Homing Arrow");
-		add(PEEntityTypes.LAVA_PROJECTILE, "Lava Orb");
-		add(PEEntityTypes.LENS_PROJECTILE, "Explosive Lens");
-		add(PEEntityTypes.MOB_RANDOMIZER, "Randomizer Orb");
-		add(PEEntityTypes.NOVA_CATALYST_PRIMED, "Primed Nova Catalyst");
-		add(PEEntityTypes.NOVA_CATACLYSM_PRIMED, "Primed Nova Cataclysm");
-		add(PEEntityTypes.SWRG_PROJECTILE, "SWRG Projectile");
-		add(PEEntityTypes.WATER_PROJECTILE, "Water Orb");
-	}
-
 	private void addItems() {
 		add(PEItems.PHILOSOPHERS_STONE, "Philosopher's Stone");
-		add(PEItems.REPAIR_TALISMAN, "Repair Talisman");
-		add(PEItems.WHITE_ALCHEMICAL_BAG, "Alchemical Bag (White)");
-		add(PEItems.ORANGE_ALCHEMICAL_BAG, "Alchemical Bag (Orange)");
-		add(PEItems.MAGENTA_ALCHEMICAL_BAG, "Alchemical Bag (Magenta)");
-		add(PEItems.LIGHT_BLUE_ALCHEMICAL_BAG, "Alchemical Bag (Light Blue)");
-		add(PEItems.YELLOW_ALCHEMICAL_BAG, "Alchemical Bag (Yellow)");
-		add(PEItems.LIME_ALCHEMICAL_BAG, "Alchemical Bag (Lime)");
-		add(PEItems.PINK_ALCHEMICAL_BAG, "Alchemical Bag (Pink)");
-		add(PEItems.GRAY_ALCHEMICAL_BAG, "Alchemical Bag (Gray)");
-		add(PEItems.LIGHT_GRAY_ALCHEMICAL_BAG, "Alchemical Bag (Light Gray)");
-		add(PEItems.CYAN_ALCHEMICAL_BAG, "Alchemical Bag (Cyan)");
-		add(PEItems.PURPLE_ALCHEMICAL_BAG, "Alchemical Bag (Purple)");
-		add(PEItems.BLUE_ALCHEMICAL_BAG, "Alchemical Bag (Blue)");
-		add(PEItems.BROWN_ALCHEMICAL_BAG, "Alchemical Bag (Brown)");
-		add(PEItems.GREEN_ALCHEMICAL_BAG, "Alchemical Bag (Green)");
-		add(PEItems.RED_ALCHEMICAL_BAG, "Alchemical Bag (Red)");
-		add(PEItems.BLACK_ALCHEMICAL_BAG, "Alchemical Bag (Black)");
-		add(PEItems.KLEIN_STAR_EIN, "Klein Star Ein");
-		add(PEItems.KLEIN_STAR_ZWEI, "Klein Star Zwei");
-		add(PEItems.KLEIN_STAR_DREI, "Klein Star Drei");
-		add(PEItems.KLEIN_STAR_VIER, "Klein Star Vier");
-		add(PEItems.KLEIN_STAR_SPHERE, "Klein Star Sphere");
-		add(PEItems.KLEIN_STAR_OMEGA, "Klein Star Omega");
-		add(PEItems.ALCHEMICAL_COAL, "Alchemical Coal");
-		add(PEItems.MOBIUS_FUEL, "Mobius Fuel");
-		add(PEItems.AETERNALIS_FUEL, "Aeternalis Fuel");
-		add(PEItems.LOW_COVALENCE_DUST, "Low Covalence Dust");
-		add(PEItems.MEDIUM_COVALENCE_DUST, "Medium Covalence Dust");
-		add(PEItems.HIGH_COVALENCE_DUST, "High Covalence Dust");
-		add(PEItems.DARK_MATTER, "Dark Matter");
-		add(PEItems.RED_MATTER, "Red Matter");
-		add(PEItems.IRON_BAND, "Iron Band");
-		add(PEItems.BLACK_HOLE_BAND, "Black Hole Band");
-		add(PEItems.HARVEST_GODDESS_BAND, "Harvest Goddess Band");
-		add(PEItems.ARCHANGEL_SMITE, "Archangel's Smite");
-		add(PEItems.IGNITION_RING, "Ignition Ring");
-		add(PEItems.BODY_STONE, "Body Stone");
-		add(PEItems.SOUL_STONE, "Soul Stone");
-		add(PEItems.MIND_STONE, "Mind Stone");
-		add(PEItems.LIFE_STONE, "Life Stone");
-		add(PEItems.EVERTIDE_AMULET, "Evertide Amulet");
-		add(PEItems.VOLCANITE_AMULET, "Volcanite Amulet");
-		add(PEItems.SWIFTWOLF_RENDING_GALE, "Swiftwolf's Rending Gale");
-		add(PEItems.MERCURIAL_EYE, "Mercurial Eye");
-		add(PEItems.WATCH_OF_FLOWING_TIME, "Watch of Flowing Time");
-		add(PEItems.GEM_OF_ETERNAL_DENSITY, "Gem of Eternal Density");
-		add(PEItems.LOW_DIVINING_ROD, "Divining Rod (low)");
-		add(PEItems.MEDIUM_DIVINING_ROD, "Divining Rod (medium)");
-		add(PEItems.HIGH_DIVINING_ROD, "Divining Rod (high)");
-		add(PEItems.DESTRUCTION_CATALYST, "Destruction Catalyst");
-		add(PEItems.HYPERKINETIC_LENS, "Hyperkinetic Lens");
-		add(PEItems.CATALYTIC_LENS, "Catalytic Lens");
-		add(PEItems.DARK_MATTER_PICKAXE, "Dark Matter Pickaxe");
-		add(PEItems.DARK_MATTER_AXE, "Dark Matter Axe");
-		add(PEItems.DARK_MATTER_SHOVEL, "Dark Matter Shovel");
-		add(PEItems.DARK_MATTER_SWORD, "Dark Matter Sword");
-		add(PEItems.DARK_MATTER_HOE, "Dark Matter Hoe");
-		add(PEItems.DARK_MATTER_SHEARS, "Dark Matter Shears");
-		add(PEItems.DARK_MATTER_HAMMER, "Dark Matter Hammer");
-		add(PEItems.RED_MATTER_PICKAXE, "Red Matter Pickaxe");
-		add(PEItems.RED_MATTER_AXE, "Red Matter Axe");
-		add(PEItems.RED_MATTER_SHOVEL, "Red Matter Shovel");
-		add(PEItems.RED_MATTER_SWORD, "Red Matter Sword");
-		add(PEItems.RED_MATTER_HOE, "Red Matter Hoe");
-		add(PEItems.RED_MATTER_SHEARS, "Red Matter Shears");
-		add(PEItems.RED_MATTER_HAMMER, "Red Matter Hammer");
-		add(PEItems.RED_MATTER_KATAR, "Red Katar");
-		add(PEItems.RED_MATTER_MORNING_STAR, "Red Morningstar");
-		add(PEItems.DARK_MATTER_HELMET, "Dark Matter Helmet");
-		add(PEItems.DARK_MATTER_CHESTPLATE, "Dark Matter Chestplate");
-		add(PEItems.DARK_MATTER_LEGGINGS, "Dark Matter Leggings");
-		add(PEItems.DARK_MATTER_BOOTS, "Dark Matter Boots");
-		add(PEItems.RED_MATTER_HELMET, "Red Matter Helmet");
-		add(PEItems.RED_MATTER_CHESTPLATE, "Red Matter Chestplate");
-		add(PEItems.RED_MATTER_LEGGINGS, "Red Matter Leggings");
-		add(PEItems.RED_MATTER_BOOTS, "Red Matter Boots");
-		add(PEItems.GEM_HELMET, "Gem Helmet");
-		add(PEItems.GEM_CHESTPLATE, "Gem Chestplate");
-		add(PEItems.GEM_LEGGINGS, "Gem Leggings");
-		add(PEItems.GEM_BOOTS, "Gem Boots");
-		add(PEItems.ARCANA_RING, "Ring of Arcana");
-		add(PEItems.VOID_RING, "Void Ring");
-		add(PEItems.ZERO_RING, "Zero Ring");
 		add(PEItems.TOME_OF_KNOWLEDGE, "Tome of Knowledge");
 		add(PEItems.TRANSMUTATION_TABLET, "Transmutation Tablet");
 	}
@@ -375,7 +255,7 @@ public class PELangProvider extends BaseLanguageProvider {
 	}
 
 	private void addSubtitles() {
-		//TODO: Improve on these if someone has better ideas for the subtitles
+		// TODO: Improve on these if someone has better ideas for the subtitles
 		add(PESoundEvents.WIND_MAGIC, "Wind Magic");
 		add(PESoundEvents.WATER_MAGIC, "Water Magic");
 		add(PESoundEvents.POWER, "Device Powered");
